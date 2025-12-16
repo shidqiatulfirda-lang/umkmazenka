@@ -1,0 +1,491 @@
+/* ====== STYLE AZENKA ELEGAN (FINAL CLEAN + READY SLIDER INSIDE CARD) ====== */
+
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+  background-color: hsl(0, 85%, 82%);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #a03d52;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  border-bottom: 4px solid #e4c5c7;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigasi */
+nav {
+  background-color: #7f2329;
+  padding: 12px;
+  text-align: center;
+}
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  color: #a03d52;
+  border-bottom: 2px solid #a03d52;
+}
+
+/* Main */
+main {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Card umum */
+.card {
+  background: #fdcbcb;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #af3650;
+  color: rgb(254,253,253);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s;
+}
+.btn:hover {
+  background-color: #8c3446;
+  transform: scale(1.05);
+}
+
+/* Produk Grid */
+.products .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+} /* ← TUTUP BLOK .grid */
+
+/* Card dalam produk */
+.products .card {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fdcbcb;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.products .card {
+  background: #fdcbcb;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 250px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+/* FIX GAMBAR AGAR PAS DI CARD INDEX */
+.products .card img {
+  width: 100%;
+  height: 250px;        /* tinggi aman untuk card */
+  object-fit: cover;    /* biar gambar tidak gepeng */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* SLIDER DALAM CARD */
+.product-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+}
+.product-slider-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+.product-slider img {
+  min-width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 14px;
+}
+.slider-btn.left { left: 8px; }
+.slider-btn.right { right: 8px; }
+
+nav a {
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background-color: #a03d52;
+  color: #fff;
+}
+
+
+/* Gallery Flex */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+.gallery .card {
+  width: 300px;
+  background: #fdcbcb;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery .card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+.hidden {
+  display: none;
+}
+
+/* ==== CARD SLIDER KHUSUS GALERI ==== */
+.card-slider {
+  background: #fdcbcb; /* pink card */
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+}
+/* Wrapper gambar untuk slide */
+.card-slider .slide-wrapper {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.card-slider .slide-wrapper img {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ==== INTERAKTIF SECTION (TAMBAHAN AJA, TANPA UBAH STYLE LAMA) ==== */
+.interaktif-box {
+  background: #fdcbcb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.interaktif-box h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #7f2329;
+}
+.interaktif-box input {
+  padding: 8px;
+  width: 70%;
+  border: 2px solid #a03d52;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.interaktif-box button {
+  padding: 8px 15px;
+  background-color: #a03d52;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.interaktif-box button:hover {
+  background-color: #7f2329;
+  transform: scale(1.03);
+}
+#testimoniList p {
+  background: rgba(255,255,255,0.4);
+  padding: 6px;
+  margin: 4px 0;
+  border-radius: 6px;
+}
+/* Biar gambar produk responsif */
+.product-detail img {
+  width: 100%;
+  height: auto;
+  max-width: 400px; /* batas supaya nggak terlalu besar */
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+/* Biar konten rapi dan nggak mepet pinggir */
+.product-detail {
+  padding: 20px;
+}
+/* Biar section interaktif tidak kepentok gambar */
+.interaktif-box {
+  margin-top: 20px;
+}
+/* ====== POPUP WELCOME ELEGAN AZENKA ====== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+  transition: opacity 0.4s ease;
+}
+
+.popup-box {
+  background: #fdcbcb;
+  border: 3px solid #a03d52;
+  border-radius: 16px;
+  padding: 30px 35px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: popupFade 0.5s ease forwards;
+}
+
+.popup-box h2 {
+  margin-bottom: 10px;
+  color: #7f2329;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.popup-box p {
+  color: #4b1f1f;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.popup-box button {
+  background: #a03d52;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.popup-box button:hover {
+  background: #7f2329;
+  transform: scale(1.05);
+}
+
+/* Animasi popup */
+@keyframes popupFade {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==== STYLE KHUSUS HALAMAN KONTAK ==== */
+.contact-card {
+  background: #fdcbcb;
+  padding: 35px 40px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+form label {
+  font-weight: 600;
+  color: #6e1c2e;
+  display: block;
+  margin-bottom: 6px;
+}
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #a03d52;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+form textarea {
+  resize: none;
+}
+/* Checkbox biar sejajar */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+/* Tombol */
+form button {
+  padding: 11px 25px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+#kirimBtn {
+  background: #a03d52;
+  color: white;
+  margin-right: 10px;
+}
+#kirimBtn:hover {
+  background: #7f2329;
+  transform: scale(1.05);
+}
+#clearBtn {
+  background: #646464;
+  color: white;
+}
+#clearBtn:hover {
+  background: #4a4a4a;
+  transform: scale(1.05);
+}
+/* Feedback sukses */
+#successMessage {
+  background: #d6ffd8;
+  color: #27632a;
+  border-left: 6px solid #2e8b2e;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  display: none;
+  font-weight: 600;
+}
+/* ==== FOOTER ELEGAN AZENKA ==== */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 25px 0;
+  background: #7f2329;
+  color: white;
+  font-size: 15px;
+  border-top: 4px solid #e4c5c7;
+}
+
+footer a {
+  display: inline-block;
+  background: #a03d52;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+footer a:hover {
+  background: #c74a63;
+  transform: scale(1.05);
+}
+/* galeri.js */
+.hover-glow {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(160, 61, 82, 0.6);
+  transition: 0.25s ease;
+  cursor: pointer;
+  filter: brightness(1.05);
+}
+.galeri-caption {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #7f2329;
+  font-size: 15px;
+}
+/* ====== TABEL AZENKA ====== */
+.table-azenka {
+  background-color: #fdcbcb; /* biar kontras dari pink */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-azenka th {
+  background-color: #a03d52;
+  color: rgb(243, 206, 206);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-azenka td {
+  background-color: #fdcbcb;
+  vertical-align: middle;
+}
+
+.table-azenka tr:hover td {
+  background-color: #fdcbcb;
+}
+
